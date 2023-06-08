@@ -9,6 +9,7 @@ def index(request):
     
 def imagem(request, foto_id): # Recebe os parâmetros da requisição
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    Fotografia.objects.filter(pk=foto_id).update(quantidade_visitas = (fotografia.quantidade_visitas + 1))
     return render(request, 'galeria/imagem.html', {"fotografia": fotografia})
 
 def buscar(request):
@@ -20,3 +21,7 @@ def buscar(request):
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar)
 
     return render(request, "galeria/buscar.html", {"cards": fotografias})
+
+def mais_vistas(request):
+    fotografias = Fotografia.objects.order_by("-quantidade_visitas").filter(publicado=True)  
+    return render(request, 'galeria/index.html', {"cards": fotografias})
