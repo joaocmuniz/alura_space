@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from usuarios.forms import LoginForms, CadastroForms
+from apps.usuarios.forms import LoginForms, CadastroForms
 from django.contrib.auth.models import User # Biblioteca para persistir o cadastro
 from django.contrib import auth # Biblioteca para fazer autenticação do user
 from django.contrib import messages

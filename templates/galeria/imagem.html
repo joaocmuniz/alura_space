@@ -1,10 +1,7 @@
-{% extends 'galeria/base.html' %}
+{% extends '../shared/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="pagina-inicial">
-        {% include '../partials/_header.html' %}
-        <main class="principal">
-            {% include '../partials/_menu.html' %}
+
             <section class="conteudo">
                 <section class="imagem">
                     <div class="imagem__conteudo">
@@ -24,6 +21,5 @@
                     </div>
                 </section>
             </section>
-        </main>
-    </div>
+    
 {% endblock %}
